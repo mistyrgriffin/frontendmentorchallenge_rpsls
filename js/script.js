@@ -1,4 +1,5 @@
 var scoreNum = document.getElementById("score-num");
+var deleteScore = document.getElementById("deletescore-el");
 var gameSpace = document.getElementById("game-space");
 var activeGame = document.getElementById("active-game");
 var yourEl = document.getElementById("your-el");
@@ -193,3 +194,9 @@ function gameOn() {
 }
 gameOn();
 
+function deletePlayerScore() {
+    scoreNum.textContent = 0;
+    playerScore = 0;
+    gameScore = 0;
+    localStorage.clear("rpslsScore");
+}

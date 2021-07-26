@@ -393,7 +393,6 @@ button.rules {
             font-size: 30px;
             text-align: center;
             margin-top: 1em;
-            margin-right: 1em;
         }
     }
 
@@ -403,6 +402,19 @@ button.rules {
         z-index: 998;
         margin-top: -32em;
         margin-left: 1.25em;
+    }
+
+    #deletescore-el {
+        position: absolute;
+        z-index: 999;
+        color:red;
+        margin-top: -40.5em;
+        margin-left: 7em;
+        font-size: smaller;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
     
     .closeimage {
@@ -662,6 +674,18 @@ footer {
         position: absolute;
         margin-left: 33%;
         margin-top: -1.5em;
+    }
+
+    #deletescore-el {
+        width: 500px;
+        z-index: 999;
+        color:red;
+        margin-top: -40.5em;
+        font-size: smaller;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     footer {

@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](../images/rpsls_mistygriffin.png)
+![](images/rpsls_mistygriffin.png)
 
 ### Links
 

@@ -17,71 +17,72 @@
                     <div id="score-el">SCORE</div>
                     <div id="score-num"></div>
                 </div>
-                <script src="js/script.js"></script>
             </div>
+        <script src="js/script.js"></script>
         </header>
         <main>
             <div id="game-space" class="gamespace">
-                <div class="pentagon-space">
+                <div class="pentagonspace">
                     <img id="pentagon-img" class="pentagon" src="images/bg-pentagon.svg" alt="Pentagon shape">
                 </div>
-                <div class="button-space">
-                    <div class="button-grid">
-                        <div id="mainscissors-btn" class="mainscissorsbutton"><img id="mainscissorsimg" onclick="gameScissors()" class="mainscissors-img" src="images/icon-scissors.svg" alt="Hands making scissors symbol"></div>
-                            <div id="mainspock-btn" class="mainspockbutton"><img id="mainspockimg" onclick="gameSpock()" class="mainspock-img" src="images/icon-spock.svg" alt="Hands making spock symbol"></div>
-                            <div id="mainpaper-btn" class="mainpaperbutton"><img id="mainpaperimg" onclick="gamePaper()" class="mainpaper-img" src="images/icon-paper.svg" alt="Hands making paper symbol"></div>
-                            <div id="mainlizard-btn" class="mainlizardbutton"><img id="mainlizardimg" onclick="gameLizard()" class="mainlizard-img" src="images/icon-lizard.svg" alt="Hands making lizard symbol"></div>
-                            <div id="mainrock-btn" class="mainrockbutton"><img id="mainrockimg" onclick="gameRock()" class="mainrock-img" src="images/icon-rock.svg" alt="Hands making rock symbol"></div>
+                <div class="buttonspace">
+                    <div class="buttongrid">
+                            <div class="mainscissorsbutton"><img onclick="gameScissors()" class="mainscissorsimg" src="images/icon-scissors.svg" alt="Hands making scissors symbol"></div>
+                            <div class="mainspockbutton"><img onclick="gameSpock()" class="mainspockimg" src="images/icon-spock.svg" alt="Hands making spock symbol"></div>
+                            <div class="mainpaperbutton"><img onclick="gamePaper()" class="mainpaperimg" src="images/icon-paper.svg" alt="Hands making paper symbol"></div>
+                            <div class="mainlizardbutton"><img onclick="gameLizard()" class="mainlizardimg" src="images/icon-lizard.svg" alt="Hands making lizard symbol"></div>
+                            <div class="mainrockbutton"><img onclick="gameRock()" class="mainrockimg" src="images/icon-rock.svg" alt="Hands making rock symbol"></div>
                         </div>
                     </div>
                 </div>
-                <script src="js/script.js"></script>
             </div>
             <div id="hidden-space" class="hiddenspace">
                 <div id="scissors-choice">
-                    <div id="scissors-btn" class="mainscissors scissorsbutton"><img id="scissorsimg" class="mainscissors-img scissors-img" src="images/icon-scissors.svg" alt="Hands making scissors symbol"></div>
+                    <div class="scissors-button"><img class="scissors-img" src="images/icon-scissors.svg" alt="Hands making scissors symbol"></div>
                 </div>
                 <div id="spock-choice">
-                    <div id="spock-btn" class="spockbutton"><img id="spockimg" class="spock-img" src="images/icon-spock.svg" alt="Hands making spock symbol"></div>
+                    <div class="spock-button"><img class="spock-img" src="images/icon-spock.svg" alt="Hands making spock symbol"></div>
                 </div>
                 <div id="paper-choice">
-                    <div id="paper-btn" class="paperbutton"><img id="paperimg" class="paper-img" src="images/icon-paper.svg" alt="Hands making paper symbol"></div>
+                    <div class="paper-button"><img class="paper-img" src="images/icon-paper.svg" alt="Hands making paper symbol"></div>
                 </div>
                 <div id="lizard-choice">
-                    <div id="lizard-btn" class="lizardbutton"><img id="lizardimg" class="lizard-img" src="images/icon-lizard.svg" alt="Hands making lizard symbol"></div>
+                    <div class="lizard-button"><img class="lizard-img" src="images/icon-lizard.svg" alt="Hands making lizard symbol"></div>
                 </div>
                 <div id="rock-choice">
-                    <div id="rock-btn" class="rockbutton"><img id="rockimg" class="rock-img" src="images/icon-rock.svg" alt="Hands making rock symbol"></div>
+                    <div class="rock-button"><img class="rock-img" src="images/icon-rock.svg" alt="Hands making rock symbol"></div>
                 </div>
-                <script src="js/script.js"></script>
             </div>
-            <div id="active-game" class="activegame">
+            <div id="active-game" class="activespace">
                 <div class="activecontainer">
-                    <div id="your-el" class="flexbox-item1 yourel"></div>
-                    <div id="house-el" class="flexbox-item2 houseel"></div>
-                    <div id="your-pick" class="flexbox-item3 yourpick">YOU PICKED</div>
-                    <div id="house-pick" class="flexbox-item4 housepick">THE HOUSE PICKED</div>
+                    <div class="activegrid">
+                        <div id="your-el" class="yourel"></div>
+                        <div id="house-el" class="houseel"></div>
+                        <div id="your-pick" class="yourpick">YOU PICKED</div>
+                        <div id="house-pick" class="housepick">THE HOUSE PICKED</div>
+                        <div id="winlose-el" class="winlose">SORRY, YOU LOSE</div>
+                        <button id="play-el" class="play" onclick="gameOn()">PLAY AGAIN</button>
+                    </div>
                 </div>
-                <div class="winlosecontainer">
-                    <div id="winlose-el" class="winlose"></div>
-                    <button id="play-el" class="play" onclick="gameOn()">PLAY AGAIN</button>
-                </div>
-                <script src="js/script.js"></script>
             </div>
-            <button id="rules-el" class="rules" onclick="gameRules()">RULES</button>
             <div id="rules-popup" class="rulespopup">
-                <div class="rulescontainer"><p>RULES</p></div>
-                <img id="rules-img" class="rulesimage" src="images/image-rules-bonus.svg" alt="Rules of the game">
-                <img id="close-img" class="closeimage" onclick="gameRules()" src="images/icon-close.svg" alt="Close the rules">
-                <div id="deletescore-el" onclick="deletePlayerScore()">(click this link to delete your score)</div>
+                <div class="rulescontainer">
+                    <div class="rulestitle">RULES</div>
+                    <img id="rules-img" class="rulesimage" src="images/image-rules-bonus.svg" alt="Rules of the game">
+                    <img id="close-img" class="closeimage" onclick="gameRules()" src="images/icon-close.svg" alt="Close the rules">
+                    <div id="deletescore-el" onclick="deletePlayerScore()">(click here to delete your score)</div>
+                </div>
             </div>
+            <div class="rules-section">
+                <button id="rules-el" class="rules" onclick="gameRules()">RULES</button>
+            </div>
+        <script src="js/script.js"></script>
         </main>
         <footer>
             <div class="attribution">
                 Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
                 Coded by <a href="http://www.MistyRGriffin.com" target="_blank">Mity R Griffin</a>.
             </div>
-            <script src="js/script.js"></script>
         </footer>
     </div>
 </body>

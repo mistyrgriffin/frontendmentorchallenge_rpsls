@@ -200,3 +200,4 @@ function deletePlayerScore() {
     gameScore = 0;
     localStorage.clear("rpslsScore");
 }
+

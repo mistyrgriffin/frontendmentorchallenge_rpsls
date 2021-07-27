@@ -2,55 +2,48 @@
 
 :root {
     --backgradient: radial-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
-    --primaryScissors: radial-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
-    --primaryPaper: radial-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
-    --primaryRock: radial-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%));
-    --primaryLizard: radial-gradient(hsl(261, 73%, 60%),hsl(261, 72%, 63%));
-    --primarySpock: radial-gradient(hsl(189, 59%, 53%),hsl(189, 58%, 57%));
+    --scissors: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(39, 89%, 49%) 60%,hsl(40, 84%, 53%) 100%);
+    --paper: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(230, 89%, 65%) 60%,hsl(230, 31%, 37%) 100%);
+    --rock: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(349, 71%, 52%) 60%,hsl(349, 70%, 56%) 100%);
+    --lizard: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(261, 73%, 60%) 60%,hsl(261, 72%, 63%) 100%);
+    --spock: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(189, 59%, 53%) 60%,hsl(189, 58%, 57%) 100%);
     --darkText: hsl(229, 25%, 31%);
     --scoreText: hsl(229, 64%, 46%);
     --headerOutline: hsl(217, 16%, 45%);
 }
 
 body {
+    background: var(--backgradient);
     font-family: "Barlow Semi Condensed", sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: block;
+    width: 475px;
+    height: 100%;
     margin: auto;
-    padding: 0;
-    width: 375px;
-    height: 85vh;
 }
 
 .hiddenspace {
     display: none;
 }
 
-.container {
-    background: var(--backgradient);
-    margin: 0;
-    padding: 2em 0;
-    width: 375px;
-    height: 85vh;
-    text-align: center;
-}
-
 .header {
     display: flex;
-    margin: auto;
-    padding: .5em;
-    width: 80%;
-    height: 70px;
-    border: 3px solid hsl(217, 16%, 45%);
-    color: white;
-    font-weight: bold;
+    border: 3px solid var(--headerOutline);
+    width: 90%;
     justify-content: space-between;
-    text-align: justify;
-    vertical-align: middle;
     border-radius: 5px;
+    margin: auto;
+    margin-top: .5em;
+    padding: .5em;
+    align-items: flex-start;
 }
 
 img.title {
-    height: 90%;
-    margin-top: .35em;
+    width: 70px;
+    height: 70px;
 }
 
 .score-info {
@@ -68,13 +61,11 @@ img.title {
         padding-top: 1em;
         border-radius: 5px;
         letter-spacing: 1px;
-        z-index: 1;
     }
 
     #score-num {
         position:relative;
-        color: hsl(229, 25%, 31%);
-        z-index: 2;
+        color: var(--scoreText);
         font-size: 40px;
         margin-top: .5em;
         text-align: center;
@@ -82,16 +73,19 @@ img.title {
 }
 
 .gamespace {
-    display: block;
+    display: none;
     position: relative;
 
-    .pentagon-space {
+    .pentagonspace {
+        display: flex;
         position: absolute;
-        margin: auto;
         width: 200px;
         height: 200px;
-        margin-left: 5.5em;
-        margin-top: 6em;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        margin-top: 35%;
 
         .pentagon {
             width: 100%;
@@ -99,31 +93,33 @@ img.title {
         }
     }
 
-    .button-grid {
+    .buttongrid {
         position: absolute;
         display: grid;
-        gap: 0;
-        width: 275px;
-        height: 45vh;
-        margin-top: 3em;
-        margin-left: 1.75em;
+        gap: 5px;
+        width: 200px;
+        height: 200px;
+        margin-left: 10%;
+        margin-top: 18%;
         grid-template-columns: repeat(10, 30px);
         grid-template-rows: repeat(10, 30px);
     
         .mainscissorsbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(39, 89%, 49%) 60%,hsl(40, 84%, 53%) 100%);
+            background: var(--scissors);
             border-radius: 50%;
+            width: 75px;
+            height: 75px;
+            padding: 1em;
             grid-column: 5 / span 3;
             grid-row: 1 / span 3;
 
-            .mainscissors-img {
-                padding: .5em;
-                width: 35px;
-                height: 35px;
+            .mainscissorsimg {
+                padding: .75em;
+                width: 50px;
+                height: 50px;
                 z-index: 800;
                 opacity: 100%;
                 border: none;
-                margin-top: 1.25em;
 
                 &:hover {
                     cursor: pointer;
@@ -131,19 +127,21 @@ img.title {
             }
         }
         .mainspockbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(189, 59%, 53%) 60%,hsl(189, 58%, 57%) 100%);
+            background: var(--spock);
             border-radius: 50%;
+            width: 75px;
+            height: 75px;
+            padding: 1em;
             grid-column: 2 / span 3;
             grid-row: 4 / span 3;
 
-            .mainspock-img {
-                padding: .5em;
-                width: 35px;
-                height: 35px;
+            .mainspockimg {
+                padding: .75em;
+                width: 50px;
+                height: 50px;
                 z-index: 800;
                 opacity: 100%;
                 border: none;
-                margin-top: 1.25em;
 
                 &:hover {
                     cursor: pointer;
@@ -151,19 +149,21 @@ img.title {
             }
         }
         .mainpaperbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(230, 89%, 65%) 60%,hsl(230, 31%, 37%) 100%);
+            background: var(--paper);
             border-radius: 50%;
+            width: 75px;
+            height: 75px;
+            padding: 1em;
             grid-column: 8 / span 3;
             grid-row: 4 / span 3;
 
-            .mainpaper-img {
-                padding: .5em;
-                width: 35px;
-                height: 35px;
+            .mainpaperimg {
+                padding: .75em;
+                width: 50px;
+                height: 50px;
                 z-index: 800;
                 opacity: 100%;
                 border: none;
-                margin-top: 1.25em;
 
                 &:hover {
                     cursor: pointer;
@@ -171,19 +171,21 @@ img.title {
             }
         }
         .mainlizardbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(261, 73%, 60%) 60%,hsl(261, 72%, 63%) 100%);
+            background: var(--lizard);
             border-radius: 50%;
+            width: 75px;
+            height: 75px;
+            padding: 1em;
             grid-column: 3 / span 3;
             grid-row: 8 / span 3;
 
-            .mainlizard-img {
-                padding: .5em;
-                width: 35px;
-                height: 35px;
+            .mainlizardimg {
+                padding: .75em;
+                width: 50px;
+                height: 50px;
                 z-index: 800;
                 opacity: 100%;
                 border: none;
-                margin-top: 1.25em;
 
                 &:hover {
                     cursor: pointer;
@@ -191,19 +193,21 @@ img.title {
             }
         }
         .mainrockbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(349, 71%, 52%) 60%,hsl(349, 70%, 56%) 100%);
+            background: var(--rock);
             border-radius: 50%;
+            width: 75px;
+            height: 75px;
+            padding: 1em;
             grid-column: 7 / span 3;
             grid-row: 8 / span 3;
 
-            .mainrock-img {
-                padding: .5em;
-                width: 35px;
-                height: 35px;
+            .mainrockimg {
+                padding: .75em;
+                width: 50px;
+                height: 50px;
                 z-index: 800;
                 opacity: 100%;
                 border: none;
-                margin-top: 1.25em;
 
                 &:hover {
                     cursor: pointer;
@@ -213,144 +217,278 @@ img.title {
     }
 }
 
-.activegame {
+.activespace {
     display: none;
-    position: absolute;
+    position: relative;
 
     .activecontainer {
         display: flex;
-        flex-wrap: wrap;
-        width: 300px;
-        justify-content: space-between;
-        align-items: center;
-        align-content: center;
-        margin-top: -30em;
-        margin-left: 2.25em;
+        position: absolute;
+        width: 475px;
+        height: 250px;
+        margin-top: 8em;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+
+        .activegrid {
+            position: absolute;
+            align-self: center;
+            margin-left: .75em;
+            display: grid;
+            gap: 0;
+            width: 200px;
+            height: 200px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
     
-        .yourpick {
-            color: white;
-            width: 125px;
-            padding-top: 2em;
-            margin-left: 1.4em;
-        }
-        
-        .housepick {
-            color: white;
-            width: 125px;
-            padding-top: 2em;
-        }
-
-        .scissorsbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(39, 89%, 49%) 60%,hsl(40, 84%, 53%) 100%);
-            border-radius: 50%;
-            width: 125px;
-            height: 125px;
-
-            .scissors-img {
-                padding: 0;
-                width: 50px;
+            .yourel {
+                width: 125px;
                 height: 50px;
-                z-index: 800;
-                opacity: 100%;
-                border: none;
-                margin-top: 2.5em;
-                margin-left: 2.2em;
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 1;
             }
-        }
-        .spockbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(189, 59%, 53%) 60%,hsl(189, 58%, 57%) 100%);
-            border-radius: 50%;
-            width: 125px;
-            height: 125px;
-
-            .spock-img {
-                padding: 0 2.65em;
-                width: 50px;
+            .houseel {
+                width: 125px;
                 height: 50px;
-                z-index: 800;
-                opacity: 100%;
-                border: none;
-                margin-top: 2.5em;
+                grid-column: 3 / span 1;
+                grid-row: 1 / span 1;
             }
-        }
-        .paperbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(230, 89%, 65%) 60%,hsl(230, 31%, 37%) 100%);
-            border-radius: 50%;
-            width: 125px;
-            height: 125px;
-
-            .paper-img {
-                padding: 0 .5em 0 0;
-                width: 50px;
+            .winlose {
+                display: none;
+                color: white;
+                font-size: 2em;
+                text-align: center;
+                margin-bottom: 1em;
+                width: 200px;
                 height: 50px;
-                z-index: 800;
-                opacity: 100%;
-                border: none;
-                margin-top: 2.5em;
-                margin-left: 2.2em;
+                grid-column: 2 / span 1;
+                grid-row: 3 / span 1;
             }
-        }
-        .lizardbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(261, 73%, 60%) 60%,hsl(261, 72%, 63%) 100%);
-            border-radius: 50%;
-            width: 125px;
-            height: 125px;
-
-            .lizard-img {
-                padding: 0;
-                width: 50px;
-                height: 50px;
-                z-index: 800;
-                opacity: 100%;
-                border: none;
-                margin-top: 2.5em;
-                margin-left: 2.2em;
+            button.play {
+                display: none;
+                background: white;
+                color: hsl(229, 25%, 31%);
+                width: 200px;
+                height: 40px;
+                padding: .5em 1em;
+                letter-spacing: 1.5px;
+                border-radius: 7px;
+                font-weight: bold;
+                grid-column: 2 / span 1;
+                grid-row: 4 / span 1;
+            
+                &:hover {
+                    cursor: pointer;
+                }
             }
-        }
-        .rockbutton {
-            background: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(349, 71%, 52%) 60%,hsl(349, 70%, 56%) 100%);
-            border-radius: 50%;
-            width: 125px;
-            height: 125px;
-
-            .rock-img {
-                padding: 0;
-                width: 50px;
-                height: 50px;
-                z-index: 800;
-                opacity: 100%;
-                border: none;
-                margin-top: 2.5em;
-                margin-left: 2.2em;
+            .yourpick {
+                color: white;
+                text-align: center;
+                margin-top: -7em;
+                width: 125px;
+                height: 25px;
+                padding-top: 1em;
+                grid-column: 1 / span 1;
+                grid-row: 2 / span 1;
+            }
+            .housepick {
+                color: white;
+                text-align: center;
+                margin-top: -7em;
+                width: 125px;
+                height: 25px;
+                padding-top: 1em;
+                grid-column: 3 / span 1;
+                grid-row: 2 / span 1;
+            }
+    
+            .scissors-button {
+                background: var(--scissors);
+                border-radius: 50%;
+                width: 125px;
+                height: 125px;
+    
+                .scissors-img {
+                    padding: 0;
+                    width: 50px;
+                    height: 50px;
+                    z-index: 800;
+                    opacity: 100%;
+                    border: none;
+                    margin-top: 2.5em;
+                    margin-left: 2.2em;
+                }
+            }
+            .spock-button {
+                background: var(--spock);
+                border-radius: 50%;
+                width: 125px;
+                height: 125px;
+    
+                .spock-img {
+                    padding: 0 2.65em;
+                    width: 50px;
+                    height: 50px;
+                    z-index: 800;
+                    opacity: 100%;
+                    border: none;
+                    margin-top: 2.5em;
+                }
+            }
+            .paper-button {
+                background: var(--paper);
+                border-radius: 50%;
+                width: 125px;
+                height: 125px;
+    
+                .paper-img {
+                    padding: 0 .5em 0 0;
+                    width: 50px;
+                    height: 50px;
+                    z-index: 800;
+                    opacity: 100%;
+                    border: none;
+                    margin-top: 2.5em;
+                    margin-left: 2.2em;
+                }
+            }
+            .lizard-button {
+                background: var(--lizard);
+                border-radius: 50%;
+                width: 125px;
+                height: 125px;
+    
+                .lizard-img {
+                    padding: 0;
+                    width: 50px;
+                    height: 50px;
+                    z-index: 800;
+                    opacity: 100%;
+                    border: none;
+                    margin-top: 2.5em;
+                    margin-left: 2.2em;
+                }
+            }
+            .rock-button {
+                background: var(--rock);
+                border-radius: 50%;
+                width: 125px;
+                height: 125px;
+    
+                .rock-img {
+                    padding: 0;
+                    width: 50px;
+                    height: 50px;
+                    z-index: 800;
+                    opacity: 100%;
+                    border: none;
+                    margin-top: 2.5em;
+                    margin-left: 2.2em;
+                }
             }
         }
     }
+}
 
-    .winlosecontainer {
-        display: block;
+button.rules {
+    display: block;
+    background: none;
+    border: 3px solid hsl(217, 16%, 45%);
+    border-radius: 7px;
+    color: white;
+    bottom: 0;
+    width: 100px;
+    margin-top: 38em;
+    margin-bottom: 3em;
+    padding: .5em;
+    letter-spacing: 1.5px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+footer {
+    display: block;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: .5em;
+    
+    a {
+        color: hsl(230, 89%, 65%);
+    }
+}
+
+.rulespopup {
+    display: none;
+    position: relative;
+
+    .rulescontainer {
+        background: white;
+        position: absolute;
+        border: 1px solid hsl(229, 25%, 31%);
+        border-radius: 8px;
+        z-index: 999;
         width: 375px;
-        text-align: center;
+        height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
 
-        .winlose {
-            display: none;
-            color: white;
+        .rulestitle {
+            background: white;
+            color: hsl(227, 10%, 46%);
+            font-size: 30px;
+            text-align: center;
             margin-top: .5em;
-            font-size: 3em;
+            width: auto;
+        }
+
+        #deletescore-el {
+            position: absolute;
+            z-index: 999;
+            color:red;
+            font-size: smaller;
+            width: 100%;
+            text-align: center;
+            margin-top: 1em;
+    
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .rulesimage {
+            position: absolute;
+            z-index: 998;
+            width: 90%;
+            height: 60%;
+            margin: auto;
+            margin-top: 1.5em;
+            left: 0;
+            right: 0;
+            padding: 2em 0;
         }
     
-        button.play {
-            display: none;
+        .closeimage {
             position: absolute;
-            background: white;
-            color: hsl(229, 25%, 31%);
-            width: 200px;
-            padding: 1em;
-            letter-spacing: 1.5px;
-            border-radius: 7px;
-            margin-top: 2em;
-            margin-left: 6.5em;
-            font-weight: bold;
-        
+            z-index: 999;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1em;
+            left: 0;
+            right: 0;
+            bottom: 0;
+    
             &:hover {
                 cursor: pointer;
             }
@@ -358,344 +496,3 @@ img.title {
     }
 }
 
-button.rules {
-    position: absolute;
-    background: none;
-    border: 3px solid hsl(217, 16%, 45%);
-    width: 100px;
-    color: white;
-    padding: .5em;
-    letter-spacing: 1.5px;
-    border-radius: 7px;
-    margin-top: -8em;
-    margin-left: 10em;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.rulespopup {
-    display: none;
-
-    .rulescontainer {
-        position: absolute;
-        z-index: 997;
-        background:white;
-        border: 1px solid hsl(229, 25%, 31%);
-        border-radius: 8px;
-        width: 375px;
-        height: 75vh;
-        margin-top: -38em;
-
-        p {
-            color: hsl(227, 10%, 46%);
-            font-size: 30px;
-            text-align: center;
-            margin-top: 1em;
-        }
-    }
-
-    .rulesimage {
-        background: white;
-        position: absolute;
-        z-index: 998;
-        margin-top: -32em;
-        margin-left: 1.25em;
-    }
-
-    #deletescore-el {
-        position: absolute;
-        z-index: 999;
-        color:red;
-        margin-top: -40.5em;
-        margin-left: 7em;
-        font-size: smaller;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-    
-    .closeimage {
-        position: absolute;
-        z-index: 999;
-        margin-top: -8em;
-        margin-left: 11em;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-}
-
-footer {
-    position: absolute;
-    color: white;
-    font-size: 12px;
-    margin-top: -3em;
-    margin-left: 5em;
-    a {
-        color: hsl(228, 45%, 44%);
-    }
-}
-
-@media only screen and (min-width: 1080px) {
-    body {
-        margin: auto;
-        width: 90%;
-    }
-    
-    .container {
-        background: var(--backgradient);
-        width: 100%;
-        height: 88.5vh;
-        margin: auto;
-    }
-
-    .header {
-        display: flex;
-        width: 50%;
-        height: 70px;
-        border: 3px solid hsl(217, 16%, 45%);
-        color: white;
-        font-weight: bold;
-        justify-content: space-between;
-        text-align: justify;
-        vertical-align: middle;
-        border-radius: 5px;
-    }
-
-    .gamespace {
-        display: flex;
-        margin-left: 32%;
-        margin-top: 1em;
-
-        .pentagon-space {
-            position: absolute;
-            margin: auto;
-            width: 300px;
-            height: 300px;
-            margin-left: 5.5em;
-            margin-top: 6em;
-    
-            .pentagon {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .button-grid {
-            width: 300px;
-            height: 60vh;
-            margin-top: 1.5em;
-            margin-left: 1.5em;
-            grid-template-columns: repeat(10, 40px);
-            grid-template-rows: repeat(10, 40px);
-
-            .mainscissorsbutton {
-                width: 125px;
-                height: 125px;
-
-                .mainscissors-img {
-                    padding: .5em;
-                    width: 50px;
-                    height: 50px;
-                    margin-top: 1.75em;
-                }
-            }
-            .mainspockbutton {
-                width: 125px;
-                height: 125px;
-
-                .mainspock-img {
-                    padding: .5em;
-                    width: 50px;
-                    height: 50px;
-                    margin-top: 1.75em;
-                }
-            }
-            .mainpaperbutton {
-                width: 125px;
-                height: 125px;
-
-                .mainpaper-img {
-                    padding: .5em;
-                    width: 50px;
-                    height: 50px;
-                    margin-top: 1.75em;
-                }
-            }
-            .mainlizardbutton {
-                width: 125px;
-                height: 125px;
-
-                .mainlizard-img {
-                    padding: .5em;
-                    width: 50px;
-                    height: 50px;
-                    margin-top: 1.75em;
-                }
-            }
-            .mainrockbutton {
-                width: 125px;
-                height: 125px;
-
-                .mainrock-img {
-                    padding: .5em;
-                    width: 50px;
-                    height: 50px;
-                    margin-top: 1.75em;
-                }
-            }
-        }
-    }
-
-
-    .activegame {
-        display: block;
-    
-        .activecontainer {
-            display: block;
-            margin-top: -30em;
-            margin-left: 21em;
-        
-            .yourpick {
-                width: 125px;
-                padding-top: 0;
-                margin-left: 2.75em;
-                margin-top: -16em;
-            }
-            
-            .housepick {
-                width: 125px;
-                padding-top: 0;
-                margin-left: 35em;
-                margin-top: -1em;
-            }
-
-            .yourel {
-                margin-top: 3em;
-                
-            }
-
-            .houseel {
-                margin-top: -11em;
-                margin-left: 33em;
-            }
-    
-            .scissorsbutton {
-                width: 175px;
-                height: 175px;
-    
-                .scissors-img {
-                    padding: 0;
-                    width: 75px;
-                    height: 75px;
-                    margin-top: 3em;
-                    margin-left: 3em;
-                }
-            }
-            .spockbutton {
-                width: 175px;
-                height: 175px;
-    
-                .spock-img {
-                    padding: 0 2.65em;
-                    width: 75px;
-                    height: 75px;
-                    margin-top: 3em;
-                    margin-left: 1em;
-                }
-            }
-            .paperbutton {
-                width: 175px;
-                height: 175px;
-    
-                .paper-img {
-                    padding: 0 .5em 0 0;
-                    width: 75px;
-                    height: 75px;
-                    margin-top: 3em;
-                    margin-left: 3em;
-                }
-            }
-            .lizardbutton {
-                width: 175px;
-                height: 175px;
-    
-                .lizard-img {
-                    padding: 0;
-                    width: 75px;
-                    height: 75px;
-                    margin-top: 3em;
-                    margin-left: 3em;
-                }
-            }
-            .rockbutton {
-                width: 175px;
-                height: 175px;
-    
-                .rock-img {
-                    padding: 0;
-                    width: 75px;
-                    height: 75px;
-                    margin-top: 3em;
-                    margin-left: 3em;
-                }
-            }
-        }
-    
-        .winlosecontainer {
-            display: block;
-            width: 375px;
-            text-align: center;
-            margin-left: 31em;
-        }
-    }
-
-    button.rules {
-        position: absolute;
-        background: none;
-        border: 3px solid hsl(217, 16%, 45%);
-        width: 100px;
-        color: white;
-        letter-spacing: 1.5px;
-        border-radius: 7px;
-        margin-left: 80%;
-        margin-top: -4em;
-    
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    .rulespopup {
-        position: absolute;
-        margin-left: 33%;
-        margin-top: -1.5em;
-    }
-
-    #deletescore-el {
-        width: 500px;
-        z-index: 999;
-        color:red;
-        margin-top: -40.5em;
-        font-size: smaller;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    footer {
-        position: absolute;
-        color: white;
-        font-size: 12px;
-        margin-left: 5%;
-
-        a {
-            color: hsl(228, 45%, 44%);
-        }
-    }
-}

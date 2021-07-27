@@ -1,59 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 :root {
   --backgradient: radial-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
-  --primaryScissors: radial-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
-  --primaryPaper: radial-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
-  --primaryRock: radial-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%));
-  --primaryLizard: radial-gradient(hsl(261, 73%, 60%),hsl(261, 72%, 63%));
-  --primarySpock: radial-gradient(hsl(189, 59%, 53%),hsl(189, 58%, 57%));
+  --scissors: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(39, 89%, 49%) 60%,hsl(40, 84%, 53%) 100%);
+  --paper: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(230, 89%, 65%) 60%,hsl(230, 31%, 37%) 100%);
+  --rock: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(349, 71%, 52%) 60%,hsl(349, 70%, 56%) 100%);
+  --lizard: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(261, 73%, 60%) 60%,hsl(261, 72%, 63%) 100%);
+  --spock: radial-gradient(hsl(136, 0%, 100%) 50%,hsl(189, 59%, 53%) 60%,hsl(189, 58%, 57%) 100%);
   --darkText: hsl(229, 25%, 31%);
   --scoreText: hsl(229, 64%, 46%);
   --headerOutline: hsl(217, 16%, 45%);
 }
 
 body {
+  background: var(--backgradient);
   font-family: "Barlow Semi Condensed", sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: block;
+  width: 475px;
+  height: 100%;
   margin: auto;
-  padding: 0;
-  width: 375px;
-  height: 85vh;
 }
 
 .hiddenspace {
   display: none;
 }
 
-.container {
-  background: var(--backgradient);
-  margin: 0;
-  padding: 2em 0;
-  width: 375px;
-  height: 85vh;
-  text-align: center;
-}
-
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: auto;
-  padding: .5em;
-  width: 80%;
-  height: 70px;
-  border: 3px solid #606e85;
-  color: white;
-  font-weight: bold;
+  border: 3px solid var(--headerOutline);
+  width: 90%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  text-align: justify;
-  vertical-align: middle;
   border-radius: 5px;
+  margin: auto;
+  margin-top: .5em;
+  padding: .5em;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 img.title {
-  height: 90%;
-  margin-top: .35em;
+  width: 70px;
+  height: 70px;
 }
 
 .score-info {
@@ -72,55 +67,61 @@ img.title {
   padding-top: 1em;
   border-radius: 5px;
   letter-spacing: 1px;
-  z-index: 1;
 }
 
 .score-info #score-num {
   position: relative;
-  color: #3b4363;
-  z-index: 2;
+  color: var(--scoreText);
   font-size: 40px;
   margin-top: .5em;
   text-align: center;
 }
 
 .gamespace {
-  display: block;
+  display: none;
   position: relative;
 }
 
-.gamespace .pentagon-space {
+.gamespace .pentagonspace {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: absolute;
-  margin: auto;
   width: 200px;
   height: 200px;
-  margin-left: 5.5em;
-  margin-top: 6em;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 35%;
 }
 
-.gamespace .pentagon-space .pentagon {
+.gamespace .pentagonspace .pentagon {
   width: 100%;
   height: 100%;
 }
 
-.gamespace .button-grid {
+.gamespace .buttongrid {
   position: absolute;
   display: -ms-grid;
   display: grid;
-  gap: 0;
-  width: 275px;
-  height: 45vh;
-  margin-top: 3em;
-  margin-left: 1.75em;
+  gap: 5px;
+  width: 200px;
+  height: 200px;
+  margin-left: 10%;
+  margin-top: 18%;
   -ms-grid-columns: (30px)[10];
       grid-template-columns: repeat(10, 30px);
   -ms-grid-rows: (30px)[10];
       grid-template-rows: repeat(10, 30px);
 }
 
-.gamespace .button-grid .mainscissorsbutton {
-  background: radial-gradient(white 50%, #ec9e0e 60%, #eca922 100%);
+.gamespace .buttongrid .mainscissorsbutton {
+  background: var(--scissors);
   border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  padding: 1em;
   -ms-grid-column: 5;
   -ms-grid-column-span: 3;
   grid-column: 5 / span 3;
@@ -129,23 +130,25 @@ img.title {
   grid-row: 1 / span 3;
 }
 
-.gamespace .button-grid .mainscissorsbutton .mainscissors-img {
-  padding: .5em;
-  width: 35px;
-  height: 35px;
+.gamespace .buttongrid .mainscissorsbutton .mainscissorsimg {
+  padding: .75em;
+  width: 50px;
+  height: 50px;
   z-index: 800;
   opacity: 100%;
   border: none;
-  margin-top: 1.25em;
 }
 
-.gamespace .button-grid .mainscissorsbutton .mainscissors-img:hover {
+.gamespace .buttongrid .mainscissorsbutton .mainscissorsimg:hover {
   cursor: pointer;
 }
 
-.gamespace .button-grid .mainspockbutton {
-  background: radial-gradient(white 50%, #40b9ce 60%, #52bed1 100%);
+.gamespace .buttongrid .mainspockbutton {
+  background: var(--spock);
   border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  padding: 1em;
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-column: 2 / span 3;
@@ -154,23 +157,25 @@ img.title {
   grid-row: 4 / span 3;
 }
 
-.gamespace .button-grid .mainspockbutton .mainspock-img {
-  padding: .5em;
-  width: 35px;
-  height: 35px;
+.gamespace .buttongrid .mainspockbutton .mainspockimg {
+  padding: .75em;
+  width: 50px;
+  height: 50px;
   z-index: 800;
   opacity: 100%;
   border: none;
-  margin-top: 1.25em;
 }
 
-.gamespace .button-grid .mainspockbutton .mainspock-img:hover {
+.gamespace .buttongrid .mainspockbutton .mainspockimg:hover {
   cursor: pointer;
 }
 
-.gamespace .button-grid .mainpaperbutton {
-  background: radial-gradient(white 50%, #5671f5 60%, #414b7c 100%);
+.gamespace .buttongrid .mainpaperbutton {
+  background: var(--paper);
   border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  padding: 1em;
   -ms-grid-column: 8;
   -ms-grid-column-span: 3;
   grid-column: 8 / span 3;
@@ -179,23 +184,25 @@ img.title {
   grid-row: 4 / span 3;
 }
 
-.gamespace .button-grid .mainpaperbutton .mainpaper-img {
-  padding: .5em;
-  width: 35px;
-  height: 35px;
+.gamespace .buttongrid .mainpaperbutton .mainpaperimg {
+  padding: .75em;
+  width: 50px;
+  height: 50px;
   z-index: 800;
   opacity: 100%;
   border: none;
-  margin-top: 1.25em;
 }
 
-.gamespace .button-grid .mainpaperbutton .mainpaper-img:hover {
+.gamespace .buttongrid .mainpaperbutton .mainpaperimg:hover {
   cursor: pointer;
 }
 
-.gamespace .button-grid .mainlizardbutton {
-  background: radial-gradient(white 50%, #834fe3 60%, #8c5de5 100%);
+.gamespace .buttongrid .mainlizardbutton {
+  background: var(--lizard);
   border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  padding: 1em;
   -ms-grid-column: 3;
   -ms-grid-column-span: 3;
   grid-column: 3 / span 3;
@@ -204,23 +211,25 @@ img.title {
   grid-row: 8 / span 3;
 }
 
-.gamespace .button-grid .mainlizardbutton .mainlizard-img {
-  padding: .5em;
-  width: 35px;
-  height: 35px;
+.gamespace .buttongrid .mainlizardbutton .mainlizardimg {
+  padding: .75em;
+  width: 50px;
+  height: 50px;
   z-index: 800;
   opacity: 100%;
   border: none;
-  margin-top: 1.25em;
 }
 
-.gamespace .button-grid .mainlizardbutton .mainlizard-img:hover {
+.gamespace .buttongrid .mainlizardbutton .mainlizardimg:hover {
   cursor: pointer;
 }
 
-.gamespace .button-grid .mainrockbutton {
-  background: radial-gradient(white 50%, #dc2e4e 60%, #dd405d 100%);
+.gamespace .buttongrid .mainrockbutton {
+  background: var(--rock);
   border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  padding: 1em;
   -ms-grid-column: 7;
   -ms-grid-column-span: 3;
   grid-column: 7 / span 3;
@@ -229,65 +238,152 @@ img.title {
   grid-row: 8 / span 3;
 }
 
-.gamespace .button-grid .mainrockbutton .mainrock-img {
-  padding: .5em;
-  width: 35px;
-  height: 35px;
+.gamespace .buttongrid .mainrockbutton .mainrockimg {
+  padding: .75em;
+  width: 50px;
+  height: 50px;
   z-index: 800;
   opacity: 100%;
   border: none;
-  margin-top: 1.25em;
 }
 
-.gamespace .button-grid .mainrockbutton .mainrock-img:hover {
+.gamespace .buttongrid .mainrockbutton .mainrockimg:hover {
   cursor: pointer;
 }
 
-.activegame {
+.activespace {
   display: none;
-  position: absolute;
+  position: relative;
 }
 
-.activegame .activecontainer {
+.activespace .activecontainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 300px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  margin-top: -30em;
-  margin-left: 2.25em;
+  position: absolute;
+  width: 475px;
+  height: 250px;
+  margin-top: 8em;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
-.activegame .activecontainer .yourpick {
-  color: white;
+.activespace .activecontainer .activegrid {
+  position: absolute;
+  -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: .75em;
+  display: -ms-grid;
+  display: grid;
+  gap: 0;
+  width: 200px;
+  height: 200px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+}
+
+.activespace .activecontainer .activegrid .yourel {
   width: 125px;
-  padding-top: 2em;
-  margin-left: 1.4em;
+  height: 50px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
 }
 
-.activegame .activecontainer .housepick {
-  color: white;
+.activespace .activecontainer .activegrid .houseel {
   width: 125px;
-  padding-top: 2em;
+  height: 50px;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / span 1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
 }
 
-.activegame .activecontainer .scissorsbutton {
-  background: radial-gradient(white 50%, #ec9e0e 60%, #eca922 100%);
+.activespace .activecontainer .activegrid .winlose {
+  display: none;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em;
+  width: 200px;
+  height: 50px;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / span 1;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / span 1;
+}
+
+.activespace .activecontainer .activegrid button.play {
+  display: none;
+  background: white;
+  color: #3b4363;
+  width: 200px;
+  height: 40px;
+  padding: .5em 1em;
+  letter-spacing: 1.5px;
+  border-radius: 7px;
+  font-weight: bold;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / span 1;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4 / span 1;
+}
+
+.activespace .activecontainer .activegrid button.play:hover {
+  cursor: pointer;
+}
+
+.activespace .activecontainer .activegrid .yourpick {
+  color: white;
+  text-align: center;
+  margin-top: -7em;
+  width: 125px;
+  height: 25px;
+  padding-top: 1em;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+}
+
+.activespace .activecontainer .activegrid .housepick {
+  color: white;
+  text-align: center;
+  margin-top: -7em;
+  width: 125px;
+  height: 25px;
+  padding-top: 1em;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / span 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+}
+
+.activespace .activecontainer .activegrid .scissors-button {
+  background: var(--scissors);
   border-radius: 50%;
   width: 125px;
   height: 125px;
 }
 
-.activegame .activecontainer .scissorsbutton .scissors-img {
+.activespace .activecontainer .activegrid .scissors-button .scissors-img {
   padding: 0;
   width: 50px;
   height: 50px;
@@ -298,14 +394,14 @@ img.title {
   margin-left: 2.2em;
 }
 
-.activegame .activecontainer .spockbutton {
-  background: radial-gradient(white 50%, #40b9ce 60%, #52bed1 100%);
+.activespace .activecontainer .activegrid .spock-button {
+  background: var(--spock);
   border-radius: 50%;
   width: 125px;
   height: 125px;
 }
 
-.activegame .activecontainer .spockbutton .spock-img {
+.activespace .activecontainer .activegrid .spock-button .spock-img {
   padding: 0 2.65em;
   width: 50px;
   height: 50px;
@@ -315,14 +411,14 @@ img.title {
   margin-top: 2.5em;
 }
 
-.activegame .activecontainer .paperbutton {
-  background: radial-gradient(white 50%, #5671f5 60%, #414b7c 100%);
+.activespace .activecontainer .activegrid .paper-button {
+  background: var(--paper);
   border-radius: 50%;
   width: 125px;
   height: 125px;
 }
 
-.activegame .activecontainer .paperbutton .paper-img {
+.activespace .activecontainer .activegrid .paper-button .paper-img {
   padding: 0 .5em 0 0;
   width: 50px;
   height: 50px;
@@ -333,14 +429,14 @@ img.title {
   margin-left: 2.2em;
 }
 
-.activegame .activecontainer .lizardbutton {
-  background: radial-gradient(white 50%, #834fe3 60%, #8c5de5 100%);
+.activespace .activecontainer .activegrid .lizard-button {
+  background: var(--lizard);
   border-radius: 50%;
   width: 125px;
   height: 125px;
 }
 
-.activegame .activecontainer .lizardbutton .lizard-img {
+.activespace .activecontainer .activegrid .lizard-button .lizard-img {
   padding: 0;
   width: 50px;
   height: 50px;
@@ -351,14 +447,14 @@ img.title {
   margin-left: 2.2em;
 }
 
-.activegame .activecontainer .rockbutton {
-  background: radial-gradient(white 50%, #dc2e4e 60%, #dd405d 100%);
+.activespace .activecontainer .activegrid .rock-button {
+  background: var(--rock);
   border-radius: 50%;
   width: 125px;
   height: 125px;
 }
 
-.activegame .activecontainer .rockbutton .rock-img {
+.activespace .activecontainer .activegrid .rock-button .rock-img {
   padding: 0;
   width: 50px;
   height: 50px;
@@ -367,353 +463,109 @@ img.title {
   border: none;
   margin-top: 2.5em;
   margin-left: 2.2em;
-}
-
-.activegame .winlosecontainer {
-  display: block;
-  width: 375px;
-  text-align: center;
-}
-
-.activegame .winlosecontainer .winlose {
-  display: none;
-  color: white;
-  margin-top: .5em;
-  font-size: 3em;
-}
-
-.activegame .winlosecontainer button.play {
-  display: none;
-  position: absolute;
-  background: white;
-  color: #3b4363;
-  width: 200px;
-  padding: 1em;
-  letter-spacing: 1.5px;
-  border-radius: 7px;
-  margin-top: 2em;
-  margin-left: 6.5em;
-  font-weight: bold;
-}
-
-.activegame .winlosecontainer button.play:hover {
-  cursor: pointer;
 }
 
 button.rules {
-  position: absolute;
+  display: block;
   background: none;
   border: 3px solid #606e85;
-  width: 100px;
+  border-radius: 7px;
   color: white;
+  bottom: 0;
+  width: 100px;
+  margin-top: 38em;
+  margin-bottom: 3em;
   padding: .5em;
   letter-spacing: 1.5px;
-  border-radius: 7px;
-  margin-top: -8em;
-  margin-left: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 button.rules:hover {
   cursor: pointer;
 }
 
+footer {
+  display: block;
+  color: white;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+footer a {
+  color: #5671f5;
+}
+
 .rulespopup {
   display: none;
+  position: relative;
 }
 
 .rulespopup .rulescontainer {
-  position: absolute;
-  z-index: 997;
   background: white;
+  position: absolute;
   border: 1px solid #3b4363;
   border-radius: 8px;
+  z-index: 999;
   width: 375px;
-  height: 75vh;
-  margin-top: -38em;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
-.rulespopup .rulescontainer p {
+.rulespopup .rulescontainer .rulestitle {
+  background: white;
   color: #6a6f81;
   font-size: 30px;
+  text-align: center;
+  margin-top: .5em;
+  width: auto;
+}
+
+.rulespopup .rulescontainer #deletescore-el {
+  position: absolute;
+  z-index: 999;
+  color: red;
+  font-size: smaller;
+  width: 100%;
   text-align: center;
   margin-top: 1em;
 }
 
-.rulespopup .rulesimage {
-  background: white;
+.rulespopup .rulescontainer #deletescore-el:hover {
+  cursor: pointer;
+}
+
+.rulespopup .rulescontainer .rulesimage {
   position: absolute;
   z-index: 998;
-  margin-top: -32em;
-  margin-left: 1.25em;
+  width: 90%;
+  height: 60%;
+  margin: auto;
+  margin-top: 1.5em;
+  left: 0;
+  right: 0;
+  padding: 2em 0;
 }
 
-.rulespopup #deletescore-el {
+.rulespopup .rulescontainer .closeimage {
   position: absolute;
   z-index: 999;
-  color: red;
-  margin-top: -40.5em;
-  margin-left: 7em;
-  font-size: smaller;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.rulespopup #deletescore-el:hover {
+.rulespopup .rulescontainer .closeimage:hover {
   cursor: pointer;
-}
-
-.rulespopup .closeimage {
-  position: absolute;
-  z-index: 999;
-  margin-top: -8em;
-  margin-left: 11em;
-}
-
-.rulespopup .closeimage:hover {
-  cursor: pointer;
-}
-
-footer {
-  position: absolute;
-  color: white;
-  font-size: 12px;
-  margin-top: -3em;
-  margin-left: 5em;
-}
-
-footer a {
-  color: #3e52a3;
-}
-
-@media only screen and (min-width: 1080px) {
-  body {
-    margin: auto;
-    width: 90%;
-  }
-  .container {
-    background: var(--backgradient);
-    width: 100%;
-    height: 88.5vh;
-    margin: auto;
-  }
-  .header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 50%;
-    height: 70px;
-    border: 3px solid #606e85;
-    color: white;
-    font-weight: bold;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    text-align: justify;
-    vertical-align: middle;
-    border-radius: 5px;
-  }
-  .gamespace {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-left: 32%;
-    margin-top: 1em;
-  }
-  .gamespace .pentagon-space {
-    position: absolute;
-    margin: auto;
-    width: 300px;
-    height: 300px;
-    margin-left: 5.5em;
-    margin-top: 6em;
-  }
-  .gamespace .pentagon-space .pentagon {
-    width: 100%;
-    height: 100%;
-  }
-  .gamespace .button-grid {
-    width: 300px;
-    height: 60vh;
-    margin-top: 1.5em;
-    margin-left: 1.5em;
-    -ms-grid-columns: (40px)[10];
-        grid-template-columns: repeat(10, 40px);
-    -ms-grid-rows: (40px)[10];
-        grid-template-rows: repeat(10, 40px);
-  }
-  .gamespace .button-grid .mainscissorsbutton {
-    width: 125px;
-    height: 125px;
-  }
-  .gamespace .button-grid .mainscissorsbutton .mainscissors-img {
-    padding: .5em;
-    width: 50px;
-    height: 50px;
-    margin-top: 1.75em;
-  }
-  .gamespace .button-grid .mainspockbutton {
-    width: 125px;
-    height: 125px;
-  }
-  .gamespace .button-grid .mainspockbutton .mainspock-img {
-    padding: .5em;
-    width: 50px;
-    height: 50px;
-    margin-top: 1.75em;
-  }
-  .gamespace .button-grid .mainpaperbutton {
-    width: 125px;
-    height: 125px;
-  }
-  .gamespace .button-grid .mainpaperbutton .mainpaper-img {
-    padding: .5em;
-    width: 50px;
-    height: 50px;
-    margin-top: 1.75em;
-  }
-  .gamespace .button-grid .mainlizardbutton {
-    width: 125px;
-    height: 125px;
-  }
-  .gamespace .button-grid .mainlizardbutton .mainlizard-img {
-    padding: .5em;
-    width: 50px;
-    height: 50px;
-    margin-top: 1.75em;
-  }
-  .gamespace .button-grid .mainrockbutton {
-    width: 125px;
-    height: 125px;
-  }
-  .gamespace .button-grid .mainrockbutton .mainrock-img {
-    padding: .5em;
-    width: 50px;
-    height: 50px;
-    margin-top: 1.75em;
-  }
-  .activegame {
-    display: block;
-  }
-  .activegame .activecontainer {
-    display: block;
-    margin-top: -30em;
-    margin-left: 21em;
-  }
-  .activegame .activecontainer .yourpick {
-    width: 125px;
-    padding-top: 0;
-    margin-left: 2.75em;
-    margin-top: -16em;
-  }
-  .activegame .activecontainer .housepick {
-    width: 125px;
-    padding-top: 0;
-    margin-left: 35em;
-    margin-top: -1em;
-  }
-  .activegame .activecontainer .yourel {
-    margin-top: 3em;
-  }
-  .activegame .activecontainer .houseel {
-    margin-top: -11em;
-    margin-left: 33em;
-  }
-  .activegame .activecontainer .scissorsbutton {
-    width: 175px;
-    height: 175px;
-  }
-  .activegame .activecontainer .scissorsbutton .scissors-img {
-    padding: 0;
-    width: 75px;
-    height: 75px;
-    margin-top: 3em;
-    margin-left: 3em;
-  }
-  .activegame .activecontainer .spockbutton {
-    width: 175px;
-    height: 175px;
-  }
-  .activegame .activecontainer .spockbutton .spock-img {
-    padding: 0 2.65em;
-    width: 75px;
-    height: 75px;
-    margin-top: 3em;
-    margin-left: 1em;
-  }
-  .activegame .activecontainer .paperbutton {
-    width: 175px;
-    height: 175px;
-  }
-  .activegame .activecontainer .paperbutton .paper-img {
-    padding: 0 .5em 0 0;
-    width: 75px;
-    height: 75px;
-    margin-top: 3em;
-    margin-left: 3em;
-  }
-  .activegame .activecontainer .lizardbutton {
-    width: 175px;
-    height: 175px;
-  }
-  .activegame .activecontainer .lizardbutton .lizard-img {
-    padding: 0;
-    width: 75px;
-    height: 75px;
-    margin-top: 3em;
-    margin-left: 3em;
-  }
-  .activegame .activecontainer .rockbutton {
-    width: 175px;
-    height: 175px;
-  }
-  .activegame .activecontainer .rockbutton .rock-img {
-    padding: 0;
-    width: 75px;
-    height: 75px;
-    margin-top: 3em;
-    margin-left: 3em;
-  }
-  .activegame .winlosecontainer {
-    display: block;
-    width: 375px;
-    text-align: center;
-    margin-left: 31em;
-  }
-  button.rules {
-    position: absolute;
-    background: none;
-    border: 3px solid #606e85;
-    width: 100px;
-    color: white;
-    letter-spacing: 1.5px;
-    border-radius: 7px;
-    margin-left: 80%;
-    margin-top: -4em;
-  }
-  button.rules:hover {
-    cursor: pointer;
-  }
-  .rulespopup {
-    position: absolute;
-    margin-left: 33%;
-    margin-top: -1.5em;
-  }
-  #deletescore-el {
-    width: 500px;
-    z-index: 999;
-    color: red;
-    margin-top: -40.5em;
-    font-size: smaller;
-  }
-  #deletescore-el:hover {
-    cursor: pointer;
-  }
-  footer {
-    position: absolute;
-    color: white;
-    font-size: 12px;
-    margin-left: 5%;
-  }
-  footer a {
-    color: #3e52a3;
-  }
 }
 /*# sourceMappingURL=style.css.map */
